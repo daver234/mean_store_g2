@@ -16,6 +16,6 @@ require('./server/config/routes.js')(app);
 app.use(express.static(path.join(__dirname, './client/static')));
 app.use(express.static(path.join(__dirname, './client/views')));
 
-app.listen(8000, function() {
-    console.log("listening on port 8000");
+app.listen(3000, function() {
+    console.log("listening on port 3000");
 })
