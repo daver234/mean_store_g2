@@ -1,0 +1,43 @@
+
+<div ng-controller='Dashboard_Controller' id='mainProducts'>
+  <div id="dashleft">
+      <input type='text' class="search_product" class="form-control" placeholder='search....' ng-model="filter_name"/>
+      <br>
+  </div>
+
+    <div id="dashright">
+        <div id='super_right'>
+          <div class='rightnav_prod' ng-repeat="product in products | filter:filter_name | orderBy:'product_name' ">
+              <img class='product_image' ng-src='/images/{{product.image_url}}' alt="shoes" style="width:120px;height:120px;"><h6>{{product.product_name}} Qty:{{product.product_qty}}</h6>
+          </div>
+          <br>
+          <br>
+          <p><u>Recent Orders</u></p>
+            <div ng-repeat="order in orders | filter:filter_name | limitTo:3 " ng-hide = "IsVisibleOrders">
+              <h5>{{order.customer_name}} purchased {{order.order_qty}} {{order.order_name}}....({{order.time_diff}} hours ago)</h5>
+            </div>
+
+              <input type="button" id='testbtn2' value="show/hide more orders" ng-click="ShowHideOrders()" />
+              <br />
+              <div ng-show = "IsVisibleOrders" ng-repeat="order in orders | filter:filter_name">
+                <h5 >{{order.customer_name}} purchased {{order.order_qty}} {{order.order_name}}....({{order.time_diff}} hours ago)</h5>
+              </div> 
+ 
+
+            <br>
+             <p><u>New Customers</u></p>
+             <div ng-repeat="customer in customers | filter:filter_name | limitTo:3 " ng-hide = "IsVisible">
+              <h5 ><input type="checkbox" id='myCheck' name='myCheck' ng-model='checked'  /><span ng-hide="checked"> {{customer.name}} joined the store: ({{customer.time_diff}} hours ago)</span></h5>
+            </div>
+
+
+            
+              <input type="button" id='testbtn' value="show/hide more customers" ng-click="ShowHide()" />
+              <br />
+              <div ng-show = "IsVisible" ng-repeat="customer in customers | filter:filter_name">
+                <h5 ><input type="checkbox" id='myCheck' name='myCheck' ng-model='checked'  /><span ng-hide="checked"> {{customer.name}} joined the store: ({{customer.time_diff}} hours ago)</span></h5>
+              </div> 
+
+
+    </div>
+  </div>

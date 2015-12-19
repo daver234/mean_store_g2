@@ -1,0 +1,42 @@
+<div ng-controller='Products_Controller' id='mainProducts'>
+	<div id="leftnav">
+		<input type='text' class="search_product" class="form-control" placeholder='search....' ng-model="filter_name"/>
+		<br>
+
+			<input type='submit' value='Filter' class="btn btn-default"/>
+		<br>
+		<br>
+			<p><u>Add a new product</u></p>
+		<form>
+			<p><b>Name:</b></p>
+			<input type='text' class="search_product" class="form-control" placeholder='name....' ng-model="new_product.product_name"/>
+			<br>
+			<p><b>Image (url:</b></p>
+			<input type='text' class="search_product" class="form-control" placeholder='dog1.jpeg....' ng-model="new_product.image_url"/>
+			<br>
+			<p><b>Description</b></p>
+			<textarea rows='5' class="search_product" class="form-control" placeholder='describe....' ng-model="new_product.product_desc"/></textarea>
+			<br>
+			<p><b>Initial Quantity</b></p>
+			<select class="form-control" id="tbd" ng-model='new_product.product_qty'>
+                  <option value="">--SELECT--</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+                  <option>9</option>
+              </select> 
+              <input type='submit' value='Create' id='create_product' ng-click='addProduct()' class="btn btn-success">
+		</form>
+	</div>
+		<div id='super_right'>
+		<div class='rightnav' ng-repeat="product in products | filter:filter_name | orderBy:'product_name' ">
+			<img class='product_image' ng-src='/images/{{product.image_url}}' alt="shoes" style="width:120px;height:120px;"><h6>{{product.product_name}} Qty:{{product.product_qty}}</h6>
+
+		</div>
+		</div>
+</div>

@@ -1,0 +1,15 @@
+<div ng-controller='Orders_Controller' id='container'>
+	here is more stuff to show
+
+	<p><u>Recent Orders</u></p>
+          <div ng-repeat="order in orders  ">
+          <p >{{order.customer_name}} purchased {{order.order_qty}}....{{order.order_date}}</p>
+          </div>
+
+
+         <!--  <div ng-show="showDetails">
+            <p ng-repeat="order in orders" ng-click="showDetails">{{order.customer_name}} purchased {{order.order_qty}}....{{order.order_date}}</p>
+         </div>
+
+ -->
+</div>

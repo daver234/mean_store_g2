@@ -1,0 +1,38 @@
+<div ng-controller='Customers_Controller' id="container">
+      <div id='adder'>
+   
+        	<h3><u>Add a new customer</u></h3>
+        	<p >The time since customer 6 created: <span ng-bind='hours'></span></p>
+        	<div ng-repeat='error in errors'>
+        		{{error.msg}}
+        	</div>
+        <br>
+        	<p id='cust'>Customer Name:</p>
+
+        	<input type='text'  id='first_input' ng-model='new_customer.name' name='new_customer.name' class="form-control" ng-model-options="{ updateOn: 'blur' }" autofocus/>
+            
+        	<input type='Add' id='enter' ng-click='addCustomer()' class="btn btn-primary" value='Add Customer'>
+        <br>
+        <br>
+        <br>
+      	</div>
+				<table class="table table-striped">
+		        	<input type='text' id='search' class="form-control" placeholder='search name...' ng-model="filter_name"/>
+		            <thead>
+		              	<tr>
+			                <th>Customer Name</th>
+			                <th>Product Name</th>
+			                <th>Quantity</th>
+			                <th>Order Date</th>
+		              	</tr>
+		            </thead>
+		            <tbody>
+		              	<tr ng-repeat="order in orders | filter:filter_name | orderBy:'name' ">
+			                <td >{{order.customer_name}}</td>
+			                <td >{{order.order_name}}</td>
+			                <td >{{order.order_qty}}</td>
+			                <td >{{order.order_date}}</td>
+		              	</tr>  
+		            </tbody>
+		        </table>
+</div>
