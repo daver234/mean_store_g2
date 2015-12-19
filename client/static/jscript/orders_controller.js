@@ -23,7 +23,7 @@ mean_store.controller('Orders_Controller', function($scope, Order_Factory, Custo
               // $scope.orders = Order_Factory.getOrders(function(data9){
               // $scope.orders = data9;
               });
-            });
+            //};
           console.log('in addOrder controller', $scope.new_order);
           Order_Factory.addOrder($scope.new_order, function(err) {
             console.log('in Order Controller; back from addOrder Factory');
@@ -31,6 +31,5 @@ mean_store.controller('Orders_Controller', function($scope, Order_Factory, Custo
               $scope.orders = data1;
               });
             });
-          
         }
       });
