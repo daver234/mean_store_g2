@@ -1,7 +1,7 @@
 mean_store.controller('Orders_Controller', function($scope, Order_Factory, Customer_Factory, Product_Factory) {
         console.log('just entered Orders_Controller')
         Order_Factory.getOrders(function(data) {
-          //console.log('in OrdersController back from factory',data);
+          console.log('in OrdersController back from factory',data);
           $scope.orders = data;
           
           Customer_Factory.getCustomers(function(output) {
